@@ -80,20 +80,20 @@ public class GameTest {
     @Test
     public void 파이널_프레임에서_뷰가_올바른가() {
         FinalFrame frame = FinalFrame.generate(Score.in(of(10)));
-        assertEquals("  X   |", game.reflectFinalView(frame));
+        assertEquals("|  KYJ  |  X   |", game.reflectFinalView(frame));
     }
 
     @Test
     public void 파이널_프레임에서_연속된_뷰가_올바른가() {
         FinalFrame frame = FinalFrame.generate(Score.in(of(10)));
-        assertEquals("  X   |", game.reflectFinalView(frame));
-        assertEquals("  X|X |", game.reflectFinalView(frame.nextRound(Score.in(of(10)))));
+        assertEquals("|  KYJ  |  X   |", game.reflectFinalView(frame));
+        assertEquals("|  KYJ  |  X|X |", game.reflectFinalView(frame.nextRound(Score.in(of(10)))));
     }
 
     @Test
     public void 파이널_프레임에서_연속된_뷰가_올바른가2() {
-        FinalFrame frame = FinalFrame.generate(Score.in(of(10))); //finalScoreType 생성?
-        assertEquals("  X   |", game.reflectFinalView(frame));
-        assertEquals("  X|4 |", game.reflectFinalView(frame.nextRound(Score.in(of(4)))));
+        FinalFrame frame = FinalFrame.generate(Score.in(of(10)));
+        assertEquals("|  KYJ  |  X   |", game.reflectFinalView(frame));
+        assertEquals("|  KYJ  |  X|4 |", game.reflectFinalView(frame.nextRound(Score.in(of(4)))));
     }
 }

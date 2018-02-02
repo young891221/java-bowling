@@ -8,6 +8,7 @@ import bowling.domain.frame.NormalFrame;
 import bowling.domain.score.Score;
 
 import static bowling.domain.frame.Frame.FINAL_FRAME;
+import static java.util.Optional.of;
 import static java.util.Optional.ofNullable;
 
 public class View {
@@ -35,7 +36,7 @@ public class View {
             printView(game.reflectView(normalFrame));
 
             int finalIndex = i;
-            ofNullable(normalFrame).filter(frame -> !frame.isEnd()).map(frame -> nextNormalFrame(finalIndex, frame));
+            of(normalFrame).filter(frame -> !frame.isEnd()).map(frame -> nextNormalFrame(finalIndex, frame));
         }
     }
 
