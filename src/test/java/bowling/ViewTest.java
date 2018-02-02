@@ -1,3 +1,5 @@
+package bowling;
+
 import bowling.domain.Game;
 import org.junit.Test;
 

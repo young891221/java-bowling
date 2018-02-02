@@ -1,13 +1,12 @@
 package bowling.domain.frame;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
 import java.util.stream.Collectors;
 
 import static bowling.utils.StringUtils.emptyBlockFormat;
 
 public class Frames {
-    private List<Frame> frames = new ArrayList<>();
+    private LinkedList<Frame> frames = new LinkedList<>();
 
     public String scoreView() {
         return frames.stream().map(f -> emptyBlockFormat(f.result())).collect(Collectors.joining());

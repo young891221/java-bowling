@@ -1,3 +1,5 @@
+package bowling;
+
 import bowling.domain.BowlingUser;
 import bowling.domain.frame.FinalFrame;
 import bowling.domain.frame.NormalFrame;

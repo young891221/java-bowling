@@ -1,3 +1,5 @@
+package bowling;
+
 import org.junit.Test;
 
 import bowling.domain.frame.FinalFrame;

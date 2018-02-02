@@ -1,3 +1,5 @@
+package bowling;
+
 import bowling.domain.frame.Frame;
 import bowling.domain.frame.NormalFrame;
 import bowling.domain.score.Score;
