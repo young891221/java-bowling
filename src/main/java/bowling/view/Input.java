@@ -19,13 +19,13 @@ public class Input {
         return new Input(value);
     }
 
-    public Optional<Integer> getScore(int frameCount) {
+    public int getScore(int frameCount) {
         Output.print(String.format(SCORE_INPUT_FORMAT, frameCount));
-        return ofNullable(scanner.nextInt());
+        return scanner.nextInt();
     }
 
-    public Optional<String> getName() {
+    public String getName() {
         Output.print("플레이어 이름은(3 english letters)?: ");
-        return ofNullable(scanner.next());
+        return scanner.next();
     }
 }

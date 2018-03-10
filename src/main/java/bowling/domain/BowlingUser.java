@@ -1,15 +1,15 @@
 package bowling.domain;
 
-import java.util.Optional;
+import static java.util.Optional.of;
 
 public class BowlingUser {
     private static String name;
 
-    public BowlingUser(Optional<String> name) {
-        this.name = name.filter(BowlingUser::isThreeLength).map(String::toUpperCase).orElseThrow(() -> new IllegalArgumentException("이름은 3글자만 허용됩니다."));
+    public BowlingUser(String name) {
+        this.name = of(name).filter(BowlingUser::isThreeLength).map(String::toUpperCase).orElseThrow(() -> new IllegalArgumentException("이름은 3글자만 허용됩니다."));
     }
 
-    public static BowlingUser registed(Optional<String> name) {
+    public static BowlingUser registed(String name) {
         return new BowlingUser(name);
     }
 
