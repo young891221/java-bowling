@@ -9,19 +9,19 @@ import static bowling.utils.ScoreUtils.MIN_SCORE;
 import static bowling.utils.StringUtils.scoreResultFormat;
 
 public enum NormalScoreType implements ScoreType {
-    STRIKE("X", entireScore -> isStrike(entireScore)) {
+    STRIKE("X", NormalScoreType::isStrike) {
         public String convert(EntireScore entireScore) { return this.get(); }
     },
-    SPARE("/", entireScore -> isSpare(entireScore)) {
+    SPARE("/", NormalScoreType::isSpare) {
         public String convert(EntireScore entireScore) { return scoreResultFormat(String.valueOf(entireScore.beforeLastScore().get()), this.get()); }
     },
-    MISS("-", entireScore -> isMiss(entireScore)) {
+    MISS("-", NormalScoreType::isMiss) {
         public String convert(EntireScore entireScore) { return this.get(); }
     },
-    NUMBER("", entireScore -> isNumber(entireScore)) {
+    NUMBER("", NormalScoreType::isNumber) {
         public String convert(EntireScore entireScore) { return String.valueOf(entireScore.lastScore().get()); }
     },
-    DUAL("|", entireScore -> isDual(entireScore)) {
+    DUAL("|", NormalScoreType::isDual) {
         public String convert(EntireScore entireScore) {
             Integer first = entireScore.beforeLastScore().get();
             Integer second = entireScore.lastScore().get();

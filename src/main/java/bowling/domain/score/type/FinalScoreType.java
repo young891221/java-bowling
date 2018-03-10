@@ -13,17 +13,17 @@ import static bowling.utils.StringUtils.scoreResultFormat;
  * Created by youngjae on 2018. 1. 27..
  */
 public enum FinalScoreType implements ScoreType {
-    STRIKE_AND_DUAL(entireScore -> isStrikeAndDual(entireScore)) {
+    STRIKE_AND_DUAL(FinalScoreType::isStrikeAndDual) {
         public String convert(EntireScore entireScore) {
             return firstStrikeFormat(entireScore.lastScore());
         }
     },
-    STRIKE_AND_SPARE(entireScore -> isStrikeAndSpare(entireScore)) {
+    STRIKE_AND_SPARE(FinalScoreType::isStrikeAndSpare) {
         public String convert(EntireScore entireScore) {
             return scoreResultFormat(firstStrikeFormat(entireScore.beforeLastScore()), SPARE.get());
         }
     },
-    STRIKE_THREE(entireScore -> isStrikeAndThree(entireScore)) {
+    STRIKE_THREE(FinalScoreType::isStrikeAndThree) {
         public String convert(EntireScore entireScore) {
             String result1 = firstStrikeFormat(entireScore.beforeLastScore());
             String result2 = convertFinalScore(EntireScore.generate(entireScore.lastScore()));
@@ -31,7 +31,7 @@ public enum FinalScoreType implements ScoreType {
             return scoreResultFormat(result1, result2);
         }
     },
-    THREE(entireScore -> isThree(entireScore)) {
+    THREE(FinalScoreType::isThree) {
         public String convert(EntireScore entireScore) {
             EntireScore firstEntire = EntireScore.generate(entireScore.firstScore());
             String result1 = convertFinalScore(firstEntire.inScore(entireScore.beforeLastScore()));
